@@ -1,5 +1,9 @@
 SRCS	=	ft_strlen.s \
-			ft_write.s \
+				ft_write.s 	\
+				ft_strcpy.s \
+				ft_strcmp.s \
+				ft_read.s   \
+				ft_strdup.s \
 
 OBJS	= $(SRCS:.s=.o)
 
@@ -19,9 +23,11 @@ $(NAME):	$(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 run: all
-	clang main.c -o run_test $(INCLUDE)
-	@touch test && echo "Gaspacho's test" > test
-	./run_test
+	clang main.c -o test $(INCLUDE)
+	@echo "+++++++ TEST ++++++++"
+	@./test
+	@rm -f test
+	@rm -f $(OBJS)
 
 clean:
 	rm -f $(OBJS)
@@ -29,7 +35,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	rm -f test
-	rm -f run_test
 
 re: fclean all
 

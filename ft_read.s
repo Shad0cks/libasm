@@ -1,14 +1,18 @@
 BITS 64
 
-global _ft_write
-extern ___error; 
+global _ft_read
+
+extern ___error;
+
 section .text
 
-_ft_write:
-      mov rax, 0x2000004
-      syscall
-      jc .failure
-      ret
+_ft_read:
+        mov rax, 0x2000003
+        syscall
+        jc .failure
+        ret
+
+
 
 .failure:
       mov r8, rax

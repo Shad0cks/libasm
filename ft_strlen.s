@@ -9,11 +9,11 @@ _ft_strlen:
             jmp .loop
 
 .loop:
+        cmp byte[rdi], 0
+        je .done
         inc rsi
         inc rdi
-        cmp byte[rdi], 0
-        jnz .loop
-        jmp .done
+        jmp .loop
       
 .done:
       mov rax, rsi
