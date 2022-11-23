@@ -13,9 +13,6 @@ _ft_strdup:
         call _ft_strlen
         mov rdi, rax
         call _malloc
-        jc .alloc
-
-.alloc:
         pop rsi
         mov rdi, rax
         call _ft_strcpy
